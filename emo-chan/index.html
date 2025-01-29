@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+		<title>Emo-chan</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<div id="title">
+			<p style="font-size:150%;">Emo-chan</p><br/>
+			<p>你是否感觉自己对学习失去了兴趣，对生活失去了热情，对人生失去了信心？</p>
+			<p>不要担心！打开这个神奇的聊天室，你就会找到回归现实的动力。</p>
+			<p>注意：内有毒鸡汤，心理承受能力弱者慎入。</p>
+		</div>
+		<div id="emochan" style="display:none;">
+			<div id="emoji"></div>
+			<div id="interact">
+				<p id="line"></p>
+				<input id="inptext" hidden type="text" maxlength="10" onblur="checkinp(this);" oninput="checkinp(this);"/>
+			</div>
+		</div>
+		<div id="bottom">
+			<button type="button" id="stabtn" onclick="start();">进入</button>
+			<div id="ansbtn" style="display:none;">
+				<button type="button" id="A" onclick="checkans(this);"></button>
+				<button type="button" id="B" onclick="checkans(this);"></button>
+				<button type="button" id="C" onclick="checkans(this);"></button>
+			</div>
+			<button hidden type="button" id="inpbtn" onclick="checkans(this);">确定</button>
+		</div>
+	</body>
+</html>
