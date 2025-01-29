@@ -1,0 +1,38 @@
+body{
+	margin:0;
+	padding:0;
+	height:calc(100vh);
+	display:-webkit-flex; /* Safari */
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	text-align:center;
+	background-color:white;}
+#title{
+	width:60%;
+	margin-top:-100px}
+#emochan{
+	width:100%;
+	margin-top:-100px}
+#emoji{
+	width:100%;
+	font-size:150px;}
+#interact{
+	height:5em;}
+#line{
+	width:60%;
+	margin:30px auto 40px auto;}
+#inptext{
+	width:100px;
+}
+#bottom{
+	position:fixed;
+	left:0;
+	bottom:0;
+	width:100%;
+	background-color:white;}
+button{
+	width:25%;
+	height:40px;
+	margin:30px 1%;
+	padding:0 1%;}
