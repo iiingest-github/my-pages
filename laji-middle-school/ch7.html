@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>第七章</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css.css"/>
+	<script src="common.js"></script>
+	<script src="ch7.js"></script>
+</head>
+<body onload="next();">
+	
+	<h1>第七章</h1>
+		
+	<div id="container"></div>
+	<div id="bottom">
+		<span id="skipbtn" class="btn" onclick="skip();">快进</span>
+		<span id="nxtbtn" class="btn" onclick="next();">继续</span>
+		<span hidden id="waitbtn1" class="btn">快进</span>
+		<span hidden id="waitbtn2" class="btn">继续</span>
+		<span hidden id="chkbtn" class="btn" onclick="checkans(this);">提出</span>
+		<span hidden id="endbtn" class="btn" onclick="window.open('ch8.html')">下一章</span>
+	</div>
+	
+</body>
+</html>
