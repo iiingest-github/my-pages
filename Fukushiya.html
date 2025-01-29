@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>副词屋</title>
+		<meta name="referrer" content="no-referrer"/>
+		<style>
+			body{
+				text-align:center;}
+			#title{
+				font-size:25px;
+				letter-spacing:5px;
+				text-decoration:none;
+				color:black;}
+			#titleImg{
+				width:150px;
+				height:150px;
+				transition:opacity 0.5s;
+				-webkit-transition:opacity 0.5s; /* Safari */}
+			#titleImg:hover{
+				opacity:0.5;
+				cursor:pointer;}
+			#container{
+				width:800px;
+				margin:auto;}
+			#explain{
+				padding-top:10px;
+				clear:both;
+				font-size:13px;}
+			
+			.command{
+				width:250px;
+				height:450px;
+				margin:5px;
+				float:left;
+				text-align:left;}
+			.list{
+				width:150px;
+				margin:20px 5px 5px;
+				float:left;
+				text-align:left;}
+			
+			#num1{
+				font-size:20px;}
+			#num2{
+				width:30px;}
+			button{
+				font-family:微软雅黑;
+				width:80px;
+				height:30px;
+				font-size:13px;}
+			
+			span{
+				transition:opacity 0.3s;
+				-webkit-transition:opacity 0.3s; /* Safari */}
+			a{
+				text-decoration:none;}
+			
+			.answers{
+				transition:opacity 0.5s;
+				-webkit-transition:opacity 0.5s; /* Safari */}
+			.answers:hover{
+				opacity:0.5;
+				cursor:pointer;}
+		</style>
+		<script>
+			var wordsList = [
+					["あっさり","http://ww2.sinaimg.cn/bmiddle/9150e4e5ly1fjp7vwfvlvg208c08c0sq.gif"],
+					["うっかり","http://ww3.sinaimg.cn/bmiddle/9150e4e5gy1fxz7wgaazmj205e05imwy.jpg"],
+					["うっとり","http://ww4.sinaimg.cn/bmiddle/9150e4e5gy1fssx7mweaxj206o06ojra.jpg"],
+					["うんざり","http://ww2.sinaimg.cn/bmiddle/6af89bc8gw1f8oy03i7u9j20hs0dl74z.jpg"],
+					
+					["がっしり","http://ww2.sinaimg.cn/bmiddle/9150e4e5gw1fbfkq38z48j204e02ymwz.jpg"],
+					["ぎっしり","http://ww3.sinaimg.cn/bmiddle/9150e4e5gy1fznuydcb1bg205u0a84gl.gif"],
+					["きっぱり","http://ww1.sinaimg.cn/bmiddle/9150e4e5ly1fuxuk4ujedj205i05iq2q.jpg"],
+					["ぐっすり","http://ww4.sinaimg.cn/bmiddle/9150e4e5ly1ftr9668oxvj202s02s3yb.jpg"],
+					["こっそり","http://ww3.sinaimg.cn/bmiddle/9150e4e5gy1g2x6ww5iypj2056056aax.jpg"],
+					
+					["さっぱり","http://ww4.sinaimg.cn/bmiddle/9150e4e5gy1g08o5nblegj204q04g745.jpg"],
+					["しっかり","http://ww1.sinaimg.cn/bmiddle/9150e4e5gw1fbsnod38i2j20gf0gf0va.jpg"],
+					["じっくり","http://ww1.sinaimg.cn/bmiddle/9150e4e5gy1fqs1haqn3sj207g08g74b.jpg"],
+					["しっとり","http://ww4.sinaimg.cn/bmiddle/9150e4e5gy1g32uj7mpsig201v01vq2q.gif"],
+					["すっきり","http://ww4.sinaimg.cn/bmiddle/9150e4e5gy1g2x6fc6r56j20j60h3jsi.jpg"],
+					["すんなり","http://ww1.sinaimg.cn/large/9150e4e5ly1fkw1508xe3g20qo0qojx1.gif"],
+					["そっくり","http://ww2.sinaimg.cn/bmiddle/9150e4e5ly1fka2go5j7cg206o06ot8m.gif"],
+					
+					["たっぷり","http://ww4.sinaimg.cn/bmiddle/9150e4e5ly1frwfks8hb4j209q09mwer.jpg"],
+					
+					["のんびり","http://ww1.sinaimg.cn/bmiddle/9150e4e5gy1g1tximom5fg201s01hdfy.gif"],
+					
+					["はっきり","http://ww1.sinaimg.cn/bmiddle/9150e4e5ly1fmlbr6kmkrg208c08cgm0.gif"],
+					["びっしょり","http://ww4.sinaimg.cn/bmiddle/9150e4e5ly1fqv5n0pzlbj21hc0zs772.jpg"],
+					["ひっそり","http://ww4.sinaimg.cn/bmiddle/9150e4e5gy1g19qi06e09j208c08cwev.jpg"],
+					["ぴったり","http://ww1.sinaimg.cn/bmiddle/9150e4e5gy1fv9hg4oo94j206m04zaa0.jpg"],
+					["ひんやり","http://ww3.sinaimg.cn/bmiddle/9150e4e5gw1f9bmhygx42j20j60j60ua.jpg"],
+					["ふんわり","http://ww3.sinaimg.cn/bmiddle/6af89bc8gw1f8p3cealdgg201w01yt8u.gif"],
+					["ぼんやり","http://ww4.sinaimg.cn/bmiddle/6af89bc8gw1f8t47frxq5j2026020q2y.jpg"],
+					
+					["めっきり","http://ww1.sinaimg.cn/bmiddle/9150e4e5gy1g3hwnuycrfj20ic0ag0tt.jpg"],
+					
+					["やんわり","http://ww3.sinaimg.cn/bmiddle/6af89bc8gw1f8r2sjynavj203k03u0sl.jpg"]
+				];
+			function initialize(){
+				var lists = document.getElementsByClassName("list");
+				var newBox;
+				var newText;
+				for(var i=0;i<wordsList.length;i++){
+					newBox = document.createElement("input");
+					newBox.type = "checkbox";
+					newBox.checked = true;
+					newText = document.createElement("span");
+					newText.innerHTML = wordsList[i][0]+"<br/>";
+					newText.name = i;
+					newText.setAttribute("onmouseover","newTextOver(this);");
+					newText.setAttribute("onmouseout","newTextOut(this);");
+					if(i<wordsList.length/3){
+						lists[0].appendChild(newBox);
+						lists[0].appendChild(newText);
+					}
+					else if(i<wordsList.length*2/3){
+						lists[1].appendChild(newBox);
+						lists[1].appendChild(newText);
+					}
+					else{
+						lists[2].appendChild(newBox);
+						lists[2].appendChild(newText);
+					}
+					newWord = document.createElement("span");
+					newWord.className = "word";
+					newWord.classList.add(wordsList[i][0]);
+					newWord.classList.add(wordsList[i][1]);
+					document.body.appendChild(newWord);
+				}
+				document.getElementById("num1").innerHTML = wordsList.length + "/" + wordsList.length;
+				document.getElementById("num2").value = wordsList.length;
+			}
+			
+			function newTextOver(me){
+				var titleImg = document.getElementById("titleImg");
+				titleImg.src = wordsList[me.name][1];
+				me.style.opacity = "0.3";
+			}
+			function newTextOut(me){
+				me.style.opacity = "1";
+			}
+			function listOut(){
+				var titleImg = document.getElementById("titleImg");
+				titleImg.src = "https://ww4.sinaimg.cn/bmiddle/006ahuzrgy1g57y59bvqsj30hs0gm3zn.jpg";
+			}
+			
+			function delAll(){
+				var boxs = document.getElementsByTagName("input");
+				for(var i=1;i<boxs.length;i++){
+					boxs[i].checked = false;
+				}
+				document.getElementById("num1").innerHTML = 0 + "/" + (boxs.length-1);
+				document.getElementById("num2").value = 0;
+			}
+			function selAll(){
+				var boxs = document.getElementsByTagName("input");
+				for(var i=1;i<boxs.length;i++){
+					boxs[i].checked = true;
+				}
+				document.getElementById("num1").innerHTML = (boxs.length-1) + "/" + (boxs.length-1);
+				document.getElementById("num2").value = boxs.length-1;
+			}
+			function select(){
+				var boxs = document.getElementsByTagName("input");
+				var j = 0;
+				for(var i=1;i<boxs.length;i++){
+					if(boxs[i].checked == true){
+						j++;
+					}
+				}
+				document.getElementById("num1").innerHTML = j + "/" + (boxs.length-1);
+				document.getElementById("num2").value = j;
+			}
+			function start(){
+				var boxs = document.getElementsByTagName("input");
+				var j = 0;
+				for(var i=1;i<boxs.length;i++){
+					if(boxs[i].checked == true){
+						j++;
+					}
+				}
+				var input = document.getElementById("num2").value;
+				if(input == "" || isNaN(input)){
+					var conf = window.confirm("请将抽词数设置在0~已选单词数之间！ \n \n 点击确定自动设置为最大值，是否继续？");
+				}
+				else{
+					if(parseInt(input) > j){
+						var conf = window.confirm("请将抽词数设置在0~已选单词数之间！ \n \n 点击确定自动设置为最大值，是否继续？");
+					}
+					else{
+						var conf = false;
+						initialize2(boxs,(j-parseInt(input)));
+						next();
+					}
+				}
+				if (conf == true){
+					document.getElementById("num2").value = j;
+				}
+			}
+			
+			function initialize2(boxs,cut){
+				var words = document.getElementsByClassName("word");
+				for(var i=boxs.length-1;i>0;i--){
+					if(boxs[i].checked == false){
+						document.body.removeChild(words[i-1]);
+					}
+				}
+				for(i=0;i<cut;i++){
+					document.body.removeChild(words[Math.floor(Math.random()*(words.length))]);
+				}
+				var ctn = document.getElementById("container");
+				var rmvs = ctn.childNodes;
+				for(i=rmvs.length-1;i>=0;i--){
+					ctn.removeChild(rmvs[i]);
+				}
+				var newP = document.createElement("p");
+				newP.id = "question";
+				newP.style.fontSize = "40px";
+				ctn.appendChild(newP);
+				var newImg;
+				for(i=0;i<4;i++){
+					newImg = document.createElement("img");
+					newImg.className = "answers";
+					newImg.style.width = "150px";
+					newImg.style.height = "150px";
+					newImg.style.margin = "20px";
+					newImg.setAttribute("onclick","choose(this);");
+					ctn.appendChild(newImg);
+				}
+			}
+			
+			var index;
+			var correct;
+			
+			function next(){
+				var words = document.getElementsByClassName("word");
+				var question = document.getElementById("question");
+				var answers = document.getElementsByClassName("answers");
+				if (words[0] == null){
+					for(var i=3;i>=0;i--){
+						answers[i].parentNode.removeChild(answers[i]);
+					}
+					question.innerHTML = "もう教えることはないよ！";
+				}
+				else{
+					for(var i=3;i>=0;i--){
+						answers[i].style.opacity = null;
+						answers[i].style.cursor = null;
+					}
+					index = Math.floor(Math.random()*(words.length));
+					question.innerHTML = words[index].classList[1];
+					correct = Math.floor(Math.random()*4);
+					answers[correct].src = words[index].classList[2];
+					var randomImg;
+					for(i=0;i<4;i++){
+						if(i != correct){
+							do{
+								randomImg = wordsList[Math.floor(Math.random()*(wordsList.length))][1];
+								if(randomImg != answers[0].src && randomImg != answers[1].src && randomImg != answers[2].src && randomImg != answers[3].src){
+									break;
+								}
+							}
+							while(1);
+							answers[i].src = randomImg;
+						}
+					}
+				}
+			}
+			function choose(me){
+				var words = document.getElementsByClassName("word");
+				var question = document.getElementById("question");
+				var answers = document.getElementsByClassName("answers");
+				if(question.innerHTML != "正解！" && question.innerHTML != "残念！"){
+					for(var i=0;i<4;i++){
+						answers[i].style.cursor = "default";
+						if(i != correct){
+							answers[i].style.opacity = "0";
+						}
+						else{
+							answers[i].style.opacity = "1";
+						}
+					}
+					if(me == answers[correct]){
+						question.innerHTML = "正解！";
+						document.body.removeChild(words[index]);
+					}
+					else{
+						question.innerHTML = "残念！";
+					}
+					window.setTimeout("next()",2500);
+				}
+			}
+		</script>
+	</head>
+	
+	<body onload="initialize();">
+		
+		<p id="title">副词屋</p>
+		<img id="titleImg" onclick="history.go(0);" src="https://ww4.sinaimg.cn/bmiddle/006ahuzrgy1g57y59bvqsj30hs0gm3zn.jpg"/>
+		<p style="font-size:15px;margin-bottom:50px;">这是一个实验项目，目的是帮助记忆以り结尾的副词<del>（可能也没有什么卵用）</del>。</p>
+		<div id="container">
+			<div class="command">
+				<p><span id="num1"></span> 个已选单词</p>
+				<button onclick="delAll();">全部删除</button>
+				<button onclick="selAll();">全部选中</button>
+				<p>从中抽取 <input id="num2" type="text"/> 个</p>
+				<button onclick="start();" style="width:165px;">开始</button>
+				<p>使用说明：</p>
+				<ol style="font-size:14px;">
+					<li>勾选想了解的单词<br/>或除去已熟知的单词</li><br/>
+					<li>设置抽词数<br/>会从已选单词中抽取</li><br/>
+					<li>点击开始</li><br/>
+					<li>选择最符合的图片</li><br/>
+					<li>点击熊猫可返回此页</li>
+				</ol>
+			</div>
+			<form class="list" onclick="select();" onmouseout="listOut();"></form>
+			<form class="list" onclick="select();" onmouseout="listOut();"></form>
+			<form class="list" onclick="select();" onmouseout="listOut();"></form>
+		</div>
+		<p id="explain">
+			图片内容经 <a href="https://www.doutula.com/" target="_blank">斗图啦</a> 收集自互联网，如有失效欢迎反馈！<br/>
+			Handsome Liu 2019.09.23
+		</p>
+	</body>
+</html>
