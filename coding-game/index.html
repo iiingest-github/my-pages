@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<base target="_blank">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<title>补考</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+</head>
+<body onload="document.getElementById('bottom').style.display='block';next();">
+	
+	<div id="bottom" style="display:none;">
+		<button class="subbtn" id="loadall" onclick="skip();">跳过剧情</button>
+		<button class="mainbtn" id="next" onclick="next();">继续</button>
+		<button class="mainbtn" id="submit" onclick="next();" hidden>提交</button>
+		<button class="mainbtn" id="replay" onclick="location.reload();" hidden>重新开始</button>
+	</div>
+	
+	<h1>补考</h1>
+	<small>制作：Handsome Liu</small><br/>
+	<small>图像：<a href="https://charat.me/face/">CHARAT FACE</a></small><br/>
+	<br/><br/><br/>
+	
+	<div id="content">
+	</div>
+	
+	<img src="a.png" hidden><img src="a2.png" hidden><img src="b.png" hidden><img src="c.png" hidden><img src="d.png" hidden><img src="thanks.jpg" hidden>
+	
+</body>
+</html>
