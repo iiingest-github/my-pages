@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<title>瘦子的一周</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+</head>
+<body>
+	
+	<div id="info" style="display:none;">
+		<span id="name"></span><br/>
+		<small>体重：<span id="weight">86</span></small>
+	</div>
+	
+	<div id="ctn">
+		<div class="card" style="text-align:center;">
+			姓名：<br/><input type="text" maxlength="10" placeholder="10文字以内" onchange="checkinp(this);"><br/>
+		</div>
+		<button id="start" class="main dis" onclick="checkname(this);">开始</button>
+	</div>
+	
+	<button id="sel1" class="sub" style="display:none;"></button>
+	<button id="sel2" class="sub" style="display:none;"></button>
+	<button id="sel3" class="sub" style="display:none;"></button>
+	
+	<button id="next" class="main" style="display:none;" onclick="next();">继续</button>
+	
+</body>
+</html>
