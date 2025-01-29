@@ -1,0 +1,72 @@
+﻿body{
+	margin:100px 30px 150px 30px;
+	text-align:center;}
+#bottom{
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:100px;
+	background-color:white;
+}
+button{
+	margin:20px 18px;
+	width:240px;
+	height:4em;
+	border-radius:2px;
+	cursor:pointer;
+}
+button.disabled{
+	opacity:0.5;
+	cursor:default;
+}
+.subbtn,.lbtn{
+	background-color:white;
+	border:1px blue solid;
+	color:blue;
+}
+.mainbtn{
+	border:none;
+	background-color:blue;
+	color:white;
+}
+.lbtn{
+	display:block;
+	margin:10px auto;
+}
+.lbtns{
+	max-width:600px;
+	margin:auto;
+	text-align:center;
+}
+
+.line{
+	max-width:600px;
+	margin:auto;
+	text-align:left;
+	padding:20px;
+	display:-webkit-flex;/* Safari */
+	display:flex;
+	flex-flow:row nowrap;
+}
+img{
+	flex-basis:70px;
+	height:70px;
+}
+.lline{
+	padding-left:10px;
+}
+
+input{
+	width:100%;
+	height:2em;
+}
+
+@media screen and (max-width:1000px){
+
+button{
+	margin:20px 3%;
+	width:40%;
+}
+
+}
